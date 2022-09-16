@@ -25,6 +25,11 @@ const typeDefs = gql`
     createdAt: String
   }
 
+  type Tag{
+    _id: ID
+    tagText: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -42,6 +47,7 @@ const typeDefs = gql`
     addUser(email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addSnippet(snippetTitle: String!, snippetDescription: String!, snippetText: String!): Snippet
+
     addComment(snippetId: ID!, commentText: String!): Snippet
     removeComment(snippetId: ID!, commentId: ID!): Snippet
   }
